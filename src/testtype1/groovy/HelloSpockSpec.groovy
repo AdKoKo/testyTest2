@@ -11,7 +11,7 @@ class HelloSpockSpec extends Specification {
         // Some random change
         where:
         name     | length
-        "Spock"  | 6
+        "Spock"  | 5
         "Kirk"   | 4
         "Scotty" | 6
     }
