@@ -5,6 +5,6 @@ public class SampleTest {
 
     @Test
     public void helloTest() {
-        Assert.assertEquals(2, 1);
+        Assert.assertEquals(2, 3);
     }
 }
