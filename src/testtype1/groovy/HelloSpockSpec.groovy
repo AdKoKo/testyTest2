@@ -8,9 +8,10 @@ class HelloSpockSpec extends Specification {
         expect:
         name.size() == length
 
+        // Some random change
         where:
         name     | length
-        "Spock"  | 5
+        "Spock"  | 6
         "Kirk"   | 4
         "Scotty" | 6
     }
