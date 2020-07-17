@@ -1,0 +1,65 @@
+version: '3'
+services:
+
+  jenkins:
+    container_name: jenkins
+    image: jenkins/jenkins:lts
+    environment:
+      JAVA_OPTS: "-Djava.awt.headless=true"
+    ports:
+      - 50000:50000
+      - 8081:8080
+    volumes:
+      - /jenkins:/var/jenkins_home
+
+  sonarqube:
+    container_name: sonarqube
+    image: dmssonarqube:1.0
+    ports:
+    - 9000:9000
+
+  selenium_hub:
+    container_name: selenium_hub
+    image: selenium/hub
+    ports:
+      - 4444:4444
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.admin
+      PGADMIN_DEFAULT_PASSWORD: admin123
+    ports:
+      - "80:80"
+  firefoxnode:
+    container_name: firefox_node
+    image: selenium/node-firefox
+    environment:
+      - HUB_PORT_4444_TCP_ADDR=selenium_hub
+      - HUB_PORT_4444_TCP_PORT=4444
+      - NODE_MAX_INSTANCES=5
+      - NODE_MAX_SESSION=5
+    depends_on:
+      - selenium_hub
+    ports:
+      - 5554
+  # intrasoft questions toolkit
+  chromenode:
+    container_name: chrome_node
+    image: selenium/node-chrome
+    environment:
+      - HUB_PORT_4444_TCP_ADDR=selenium_hub
+      - HUB_PORT_4444_TCP_PORT=4444
+    depends_on:
+      - selenium_hub
+    ports:
+      - 5555
+  operanode:
+    container_name: opera_node
+    image: selenium/node-opera
+    environment:
+      - HUB_PORT_4444_TCP_ADDR=selenium_hub
+      - HUB_PORT_4444_TCP_PORT=4444
+    depends_on:
+      - selenium_hub
+    ports:
+      - 5556

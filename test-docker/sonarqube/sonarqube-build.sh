@@ -1,0 +1,1 @@
+docker build --tag dmssonarqube:1.0 --no-cache .

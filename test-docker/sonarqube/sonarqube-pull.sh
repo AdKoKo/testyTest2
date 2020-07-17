@@ -1,0 +1,1 @@
+docker pull sonarqube:8.4-community
