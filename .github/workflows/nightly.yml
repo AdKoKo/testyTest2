@@ -3,7 +3,7 @@ name: nightly
 on:
   schedule:
     # run this on set UTC time - minute (first position) and hour(second position) every day, from monday to friday
-    - cron: '8 11 1,2,3,4,5 * *'
+    - cron: '18 11 [1-5] * *'
 
 jobs:
   run_tests:

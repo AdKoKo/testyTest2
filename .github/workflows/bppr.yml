@@ -21,16 +21,16 @@ jobs:
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
       # run actions
-      - name: Gradle Build
+      - name: Check if app builds
         run: ./gradlew build
       - name: Run Unit Tests
         run: ./gradlew test
       - name: Run SonarQube
         run: |
           ./gradlew sonarqube
-          -Dsonar.projectKey=${{SECRETS.SONARQUBEPROJECTKEY}}
-          -Dsonar.host.url=${{SECRETS.SONARQUBEPROJECTURL}}
-          -Dsonar.login=${{SECRETS.SONARQUBELOGINKEY}}
+          -Dsonar.projectKey=${{secrets.SonarQubeProjectKey}}
+          -Dsonar.host.url=${{secrets.SonarQubeProjectUrl}}
+          -Dsonar.login=${{secrets.SonarQubeLoginKey}}
 
   external_tests:
     runs-on: ubuntu-latest
@@ -40,7 +40,7 @@ jobs:
         uses: actions/checkout@v2
         with:
           # repository name with owner included
-          repository: ${{SECRETS.TESTSREPOSITORYNAME}}
+          repository: ${{secrets.TestsRepositoryName}}
           # PAT (Personal Access Token) with rx permissions
           token: ${{ secrets.TestsRepositoryPat }}
       - name: Set up JDK 11
