@@ -29,7 +29,10 @@ jobs:
       - name: Run SonarQube
         run: ./gradlew sonarqube -Dsonar.projectKey=${{SECRETS.SONARQUBEPROJECTKEY}} -Dsonar.host.url=${{SECRETS.SONARQUBEPROJECTURL}} -Dsonar.login=${{SECRETS.SONARQUBELOGINKEY}}
 
-    external_tests:
+  external_tests:
+    strategy:
+    runs-on: ubuntu-latest
+    steps:
       # setup
       - name: Checkout tests repository
         uses: actions/checkout@v2
