@@ -2,7 +2,7 @@ name: bppr
 
 on:
   push:
-    branches: [ development, master, '^[a-z,0-9]*(release)[a-z,0-9]*$' ]
+    branches: [ development, master, '^**(release)**$' ]
   pull_request:
     branches: [ development, master, '^**(release)**$' ]
 
