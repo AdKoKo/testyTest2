@@ -27,7 +27,7 @@ jobs:
       - name: Run Unit Tests
         run: ./gradlew test
       - name: Run SonarQube
-        run: ./gradlew sonarqube -Dsonar.projectKey=${{ SONARQUBEPROJECTKEY }} -Dsonar.host.url=${{ SONARQUBEPROJECTURL }} -Dsonar.login=${{ SONARQUBELOGINKEY }}
+        run: ./gradlew sonarqube -Dsonar.projectKey=${{SECRETS.SONARQUBEPROJECTKEY}} -Dsonar.host.url=${{SECRETS.SONARQUBEPROJECTURL}} -Dsonar.login=${{SECRETS.SONARQUBELOGINKEY}}
 
     external_tests:
       # setup
@@ -35,7 +35,7 @@ jobs:
         uses: actions/checkout@v2
         with:
           # repository name with owner included
-          repository: ${{ TESTSREPOSITORYNAME }}
+          repository: ${{SECRETS.TESTSREPOSITORYNAME}}
           # PAT (Personal Access Token) with rx permissions
           # token: ${{ secrets.TestsRepository.pat }}
       - name: Set up JDK 1.8
