@@ -2,9 +2,9 @@ name: bppr
 
 on:
   push:
-    branches: [ development ]
+    branches: [ development, master, 'release/**']
   pull_request:
-    branches: [ development ]
+    branches: [ development, master, 'release/**' ]
 
 jobs:
   local_build:
