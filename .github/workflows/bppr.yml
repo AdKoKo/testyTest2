@@ -36,7 +36,7 @@ jobs:
         uses: actions/checkout@v2
         with:
           # repository name with owner included
-          repository: AdKoKO/ext_test # ${{SECRETS.TESTSREPOSITORYNAME}}
+          repository: AdKoKo/ext_test # ${{SECRETS.TESTSREPOSITORYNAME}}
           # PAT (Personal Access Token) with rx permissions
           # token: ${{ secrets.TestsRepository.pat }}
           ref: master
