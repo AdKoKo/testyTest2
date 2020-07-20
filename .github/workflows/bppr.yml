@@ -1,11 +1,9 @@
 name: bppr
-
 on:
   push:
     branches: [ development, master, 'release/**']
   pull_request:
     branches: [ development, master, 'release/**' ]
-
 jobs:
   local_build:
     runs-on: ubuntu-latest
@@ -31,7 +29,6 @@ jobs:
           -Dsonar.projectKey=${{secrets.SonarQubeProjectKey}}
           -Dsonar.host.url=${{secrets.SonarQubeProjectUrl}}
           -Dsonar.login=${{secrets.SonarQubeLoginKey}}
-
   external_tests:
     runs-on: ubuntu-latest
     steps:
@@ -39,7 +36,7 @@ jobs:
       - name: Checkout tests repository
         uses: actions/checkout@v2
         with:
-          # repository name with owner included
+          # repository name with owner/organisation included
           repository: ${{secrets.TestsRepositoryName}}
           # PAT (Personal Access Token) with rx permissions
           token: ${{ secrets.TestsRepositoryPat }}
