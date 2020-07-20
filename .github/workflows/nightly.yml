@@ -2,6 +2,7 @@ name: nightly
 
 on:
   schedule:
+    # run this on set hour(second position) every day, from monday to friday
     - cron: '0 13 1,2,3,4,5 * *'
 
 jobs:
