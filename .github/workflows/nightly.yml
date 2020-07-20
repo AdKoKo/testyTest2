@@ -2,7 +2,7 @@ name: nightly
 on:
   schedule:
     # run this on set UTC time - minute (first position) and hour(second position) every day, from monday to friday
-    - cron: '40 11 * * Mon-Fri'
+    - cron: '41 11 * * 1-5'
 jobs:
   run_tests:
     runs-on: ubuntu-latest
