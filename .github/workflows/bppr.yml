@@ -8,7 +8,6 @@ on:
 
 jobs:
   local_build:
-    strategy:
     runs-on: ubuntu-latest
     steps:
       # setup
@@ -30,7 +29,6 @@ jobs:
         run: ./gradlew sonarqube -Dsonar.projectKey=${{SECRETS.SONARQUBEPROJECTKEY}} -Dsonar.host.url=${{SECRETS.SONARQUBEPROJECTURL}} -Dsonar.login=${{SECRETS.SONARQUBELOGINKEY}}
 
   external_tests:
-    strategy:
     runs-on: ubuntu-latest
     steps:
       # setup
