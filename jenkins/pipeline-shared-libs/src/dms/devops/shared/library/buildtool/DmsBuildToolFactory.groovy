@@ -10,7 +10,7 @@ class DmsBuildToolFactory {
     DmsBuildToolFactory() {
         buildTools.put(BuildToolType.GRADLE, { def buildObject, ArtifactsMetadataRepository repository,
                                                BuildToolParameters buildToolParameters ->
-            new dmsGradleBuildTool(repository, buildObject, buildToolParameters)
+            new DmsGradleBuildTool(repository, buildObject, buildToolParameters)
         })
     }
 
