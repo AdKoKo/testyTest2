@@ -2,7 +2,7 @@ name: nightly
 on:
   schedule:
     # run this on set UTC time - minute (first position) and hour(second position) every day, from monday to friday
-    - cron: '50 11 * * 1-5'
+    - cron: '0 18 * * 1-5'
 jobs:
   run_tests:
     runs-on: ubuntu-latest
@@ -11,6 +11,7 @@ jobs:
       - name: Checkout tests repository
         uses: actions/checkout@v2
         with:
+          # checkout to development branch
           ref: development
       - name: Set up JDK 11
         uses: actions/setup-java@v1
@@ -26,3 +27,5 @@ jobs:
         run: ./gradlew e2eTest
       - name: Run Functional Tests
         run: ./gradlew functionalTest
+      # TODO: Publish snapshot to JFrog repository
+      # TODO: Send e-mail with results of each step
