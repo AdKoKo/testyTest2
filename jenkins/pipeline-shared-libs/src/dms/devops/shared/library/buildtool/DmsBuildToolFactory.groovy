@@ -4,10 +4,10 @@ import nc.devops.shared.library.artifacts.ArtifactsMetadataRepository
 import nc.devops.shared.library.buildtool.BuildToolParameters
 import nc.devops.shared.library.buildtool.BuildToolType
 
-class dmsBuildToolFactory {
+class DmsBuildToolFactory {
     private final Map<BuildToolType, Closure<dmsBuildTool>> buildTools = new HashMap<>()
 
-    dmsBuildToolFactory() {
+    DmsBuildToolFactory() {
         buildTools.put(BuildToolType.GRADLE, { def buildObject, ArtifactsMetadataRepository repository,
                                                BuildToolParameters buildToolParameters ->
             new dmsGradleBuildTool(repository, buildObject, buildToolParameters)
