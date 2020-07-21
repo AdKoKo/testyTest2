@@ -102,7 +102,7 @@ def call(body) {
     if (System.getenv('KUBERNETES_MODE_ENABLED') == 'true') {
         AGENT_LABEL = pipelineConfig.kubernetesPodTemplate ?: System.getenv('KUBERNETES_AGENT_LABEL')
     }
-    AGENT_LABEL = pipelineConfig.agentLabel ?: (AGENT_LABEL ?: 'slave')
+    AGENT_LABEL = pipelineConfig.agentLabel ?: (AGENT_LABEL ?: 'master')
 
     echo pipelineConfig.toMapString()
 
