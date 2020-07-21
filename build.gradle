@@ -19,6 +19,7 @@ testSets{
     functionalTest { dirName = 'functional-test'}
     e2eTest { dirName = 'e2e-test'}
 }
+
 jacocoTestReport {
     reports {
         xml.enabled true
