@@ -1,5 +1,5 @@
-import dms.devops.shared.library.buildtool.dmsBuildTool
-import dms.devops.shared.library.buildtool.dmsBuildToolFactory
+import dms.devops.shared.library.buildtool.DmsBuildTool
+import dms.devops.shared.library.buildtool.DmsBuildToolFactory
 import dms.devops.shared.library.buildtool.parameters.BuildToolParametersFactory
 import dms.devops.shared.library.version.VersionType
 import dms.devops.shared.library.version.VersionUtil
@@ -310,7 +310,7 @@ private dmsBuildTool createBuildTool(Map pipelineConfig, def script, BuildToolTy
     final RepoType repoType = pipelineConfig.publishingConfig?.repoType as RepoType ?: RepoType.GENERIC
     ArtifactsMetadataRepository repository = RepositoryFactory.createMetadataRepo(repoType, this)
     BuildObject buildObject = new BuildObjectFactory(this).createBuildObject(repoType, buildToolType, pipelineConfig.buildToolName as String, buildToolParameters)
-    return new dmsBuildToolFactory().createBuildTool(buildToolType, buildObject, repository, buildToolParameters)
+    return new DmsBuildToolFactory().createBuildTool(buildToolType, buildObject, repository, buildToolParameters)
 }
 
 private String branchName() {

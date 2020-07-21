@@ -1,4 +1,4 @@
-import dms.devops.shared.library.buildtool.dmsBuildToolFactory
+import dms.devops.shared.library.buildtool.DmsBuildToolFactory
 import nc.devops.shared.library.artifacts.ArtifactsMetadataRepository
 import nc.devops.shared.library.artifacts.RepoType
 import nc.devops.shared.library.buildtool.*
@@ -81,7 +81,7 @@ def call(Closure body) {
 
                         ArtifactsMetadataRepository repository = RepositoryFactory.createMetadataRepo(repoType, this)
                         BuildObject selectedBuildObject = new BuildObjectFactory(this).createBuildObject(repoType, buildToolType, pipelineConfig.buildToolName as String, buildToolParameters)
-                        buildTool = new dmsBuildToolFactory().createBuildTool(buildToolType, selectedBuildObject, repository, buildToolParameters)
+                        buildTool = new DmsBuildToolFactory().createBuildTool(buildToolType, selectedBuildObject, repository, buildToolParameters)
                         buildTool.prepareTestExcludeArgs(this)
                         buildTool.prepareDockerExcludeArgs(this)
 
