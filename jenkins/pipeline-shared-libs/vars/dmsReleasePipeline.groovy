@@ -50,7 +50,7 @@ def call(Closure body) {
 
     final String BUILD_DIRECTORY = pipelineConfig.directory
 
-    dmsBuildTool buildTool
+    DmsBuildTool buildTool
 
     if (System.getenv('LOCAL_MODE_ENABLED') == 'true') {
         COMPONENT_TEST_AGENT_LABEL = pipelineConfig.agentLabel
@@ -305,7 +305,7 @@ def call(Closure body) {
     }
 }
 
-private dmsBuildTool createBuildTool(Map pipelineConfig, def script, BuildToolType buildToolType) {
+private DmsBuildTool createBuildTool(Map pipelineConfig, def script, BuildToolType buildToolType) {
     final BuildToolParameters buildToolParameters = new BuildToolParametersFactory(script).create(pipelineConfig)
     final RepoType repoType = pipelineConfig.publishingConfig?.repoType as RepoType ?: RepoType.GENERIC
     ArtifactsMetadataRepository repository = RepositoryFactory.createMetadataRepo(repoType, this)

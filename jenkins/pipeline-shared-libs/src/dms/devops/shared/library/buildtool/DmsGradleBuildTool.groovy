@@ -8,7 +8,7 @@ import nc.devops.shared.library.buildtool.StaticCodeAnalysisParams
 import nc.devops.shared.library.gradle.Gradle
 import org.jfrog.hudson.pipeline.common.types.buildInfo.BuildInfo
 
-class dmsGradleBuildTool extends GradleBuildTool implements dmsBuildTool {
+class dmsGradleBuildTool extends GradleBuildTool implements DmsBuildTool {
     dmsGradleBuildTool(ArtifactsMetadataRepository<?> binaryRepository, Gradle<?> selectedGradle, BuildToolParameters parameters) {
         super(binaryRepository, selectedGradle, parameters)
     }

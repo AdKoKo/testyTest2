@@ -5,7 +5,7 @@ import nc.devops.shared.library.buildtool.BuildToolParameters
 import nc.devops.shared.library.buildtool.BuildToolType
 
 class DmsBuildToolFactory {
-    private final Map<BuildToolType, Closure<dmsBuildTool>> buildTools = new HashMap<>()
+    private final Map<BuildToolType, Closure<DmsBuildTool>> buildTools = new HashMap<>()
 
     DmsBuildToolFactory() {
         buildTools.put(BuildToolType.GRADLE, { def buildObject, ArtifactsMetadataRepository repository,
@@ -14,7 +14,7 @@ class DmsBuildToolFactory {
         })
     }
 
-    dmsBuildTool createBuildTool(BuildToolType buildToolType, def buildObject, ArtifactsMetadataRepository repository,
+    DmsBuildTool createBuildTool(BuildToolType buildToolType, def buildObject, ArtifactsMetadataRepository repository,
                               BuildToolParameters buildToolParameters) {
         return buildTools.get(buildToolType).call(buildObject, repository, buildToolParameters)
     }

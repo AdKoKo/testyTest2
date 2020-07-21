@@ -51,7 +51,7 @@ def call(Closure body) {
 
     final String BUILD_DIRECTORY = pipelineConfig.directory ?: "."
 
-    dmsBuildTool buildTool
+    DmsBuildTool buildTool
     BuildToolType buildToolType
 
     def DEPLOYMENT_ENV = 'dev03'
@@ -375,7 +375,7 @@ def call(Closure body) {
     }
 }
 
-private dmsBuildTool createBuildTool(Map pipelineConfig, def script, BuildToolType buildToolType) {
+private DmsBuildTool createBuildTool(Map pipelineConfig, def script, BuildToolType buildToolType) {
     final BuildToolParameters buildToolParameters = createBuildToolParameters(pipelineConfig, script)
     final RepoType repoType = pipelineConfig.publishingConfig?.repoType as RepoType ?: RepoType.GENERIC
     ArtifactsMetadataRepository repository = RepositoryFactory.createMetadataRepo(repoType, this)
