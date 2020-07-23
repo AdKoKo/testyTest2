@@ -1,7 +1,0 @@
-@Library('dms-pipeline-shared-libraries') _
-
-dmsBuildmsipeline {
-    agentLabel = 'gradle'
-    buildToolName = 'Default'
-    skipPublishing = true
-}
