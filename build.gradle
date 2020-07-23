@@ -6,7 +6,7 @@ plugins {
     id "org.sonarqube" version "3.0"
 }
 
-group 'org.example'
+group 'org.examplee'
 version '1.0-SNAPSHOT'
 
 
