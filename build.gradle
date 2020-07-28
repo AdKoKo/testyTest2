@@ -33,7 +33,12 @@ jacocoTestCoverageVerification {
         }))
     }
 }
-
+jacoco{
+    execPattern: "${buildDir}/*.exec"
+    classPattern: "${buildDir}/classes"
+    sourcePattern: 'src/main/java'
+    exclusionPattern: 'src/test*'
+}
 test {
     scanForTestClasses = true
     minHeapSize = "128m"
