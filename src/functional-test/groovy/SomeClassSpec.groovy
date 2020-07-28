@@ -9,6 +9,6 @@ class SomeClassSpec extends Specification {
         def a = 15
         def b = 5
         expect:
-        SomeClass.randomBehaviour(a, b) == 100
+        SomeClass.randomBehaviour(a, b) == 20
     }
 }
