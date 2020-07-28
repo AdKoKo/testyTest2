@@ -28,7 +28,7 @@ class SomeClassSpec extends Specification {
         SomeClass.randomBehaviour(a, b) == 20
     }
 
-    def "a+b less than -2, or is it?uwo"() {
+    def "a+b less than -2, or is it?uwou"() {
         given:
         def a = 11
         def b = -14
