@@ -2,6 +2,7 @@
 
 import spock.lang.Specification
 
+
 class SomeClassSpec extends Specification {
 
     def "Addition"() {
