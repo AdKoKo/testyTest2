@@ -19,7 +19,9 @@ testSets{
     functionalTest { dirName = 'functional-test'}
     e2eTest { dirName = 'e2e-test'}
 }
-
+tasks.sonarqube {
+    dependsOn tasks.jacocoTestReport
+}
 jacocoTestReport {
     reports {
         xml.enabled true
