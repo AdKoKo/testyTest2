@@ -20,7 +20,7 @@ testSets{
     e2eTest { dirName = 'e2e-test'}
 }
 tasks.sonarqube {
-    dependsOn tasks.jacocoTestReport
+    dependsOn tasks.check
 }
 jacocoTestReport {
     reports {
