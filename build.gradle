@@ -11,6 +11,7 @@ plugins {
     //id "jacoco"
     //id "org.sonarqube" version "3.0"
 }
+
 apply plugin: 'dk.toldst.dms.dms-devops-gradle-plugin'
 group 'org.example'
 version '1.0-SNAPSHOT'
