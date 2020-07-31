@@ -1,12 +1,20 @@
+buildscript {
+    dependencies{
+        classpath("dk.toldst.dms:dms-devops-gradle-plugin:0.0.1")
+    }
+}
+
 plugins {
     id 'groovy'
     id 'java'
     id 'org.unbroken-dome.test-sets' version '3.0.1'
-    id "jacoco"
-    id "org.sonarqube" version "3.0"
+    //id "jacoco"
+    //id "org.sonarqube" version "3.0"
 }
 
-group 'org.examplee'
+
+apply plugin: 'dk.toldst.dms.dms-devops-gradle-plugin'
+group 'org.example'
 version '1.0-SNAPSHOT'
 
 
@@ -20,6 +28,21 @@ testSets{
     e2eTest { dirName = 'e2e-test'}
 }
 
+//jacocoTestReport {
+//    reports {
+//        xml.enabled true
+//        html.destination file("${buildDir}/reports/html/jacoco")
+//        xml.destination file("${buildDir}/reports/xml/jacoco.xml")
+//    }
+//}
+//jacocoTestCoverageVerification {
+//    afterEvaluate {
+//        classDirectories.setFrom(files(classDirectories.files.collect {
+//            fileTree(dir: it, exclude: ['testtype1/**','testtype2/**'])
+//        }))
+//    }
+//}
+
 //tasks.sonarqube {
 //    dependsOn tasks.jacocoTestReport
 //}
@@ -27,22 +50,6 @@ testSets{
 //tasks.jacocoTestReport{
 //    dependsOn tasks.test
 //}
-jacocoTestReport {
-    reports {
-        xml.enabled true
-        html.destination file("${buildDir}/reports/html/jacoco")
-        xml.destination file("${buildDir}/reports/xml/jacoco.xml")
-    }
-}
-
-jacocoTestCoverageVerification {
-    afterEvaluate {
-        classDirectories.setFrom(files(classDirectories.files.collect {
-            fileTree(dir: it, exclude: ['testtype1/**','testtype2/**'])
-        }))
-    }
-}
-
 test {
     scanForTestClasses = true
     minHeapSize = "128m"
