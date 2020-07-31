@@ -11,6 +11,7 @@ class SomeClassSpec extends Specification {
         expect:
         SomeClass.randomBehaviour(a, b) == 20
     }
+
     def "a less than 10"() {
         given:
         def a = 8
@@ -18,6 +19,7 @@ class SomeClassSpec extends Specification {
         expect:
         SomeClass.randomBehaviour(a, b) == a
     }
+
     def "b greater than 20"() {
         given:
         def a = 11
@@ -25,7 +27,8 @@ class SomeClassSpec extends Specification {
         expect:
         SomeClass.randomBehaviour(a, b) == 20
     }
-    def "a+b less than -2"() {
+
+    def "a+b less than -2, or is it?uwouou"() {
         given:
         def a = 11
         def b = -14

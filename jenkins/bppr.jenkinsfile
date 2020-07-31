@@ -3,4 +3,5 @@
 dmsBpprPipeline {
     agentLabel = 'gradle'
     buildToolName = 'Default'
+    sonarqubeServerKey=6e0da5002765e9a80a87dc22554e0667d913ca3d
 }
