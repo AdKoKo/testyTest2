@@ -15,6 +15,7 @@ apply plugin: 'dk.toldst.dms.dms-devops-gradle-plugin'
 group 'org.example'
 version '1.0-SNAPSHOT'
 
+
 repositories {
     mavenCentral()
 }
